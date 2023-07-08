@@ -17,10 +17,7 @@ const JobList: React.FC = () => {
   const [newSearch, setNewSearch] = useState("");
   const [editModal, setEditModal] = useState(false);
 
-  const handleDeleteJob = (id: number) => {
-    deleteJob(id);
-  };
-
+ 
   const handleEditJob = (
     id: number,
     img: string,
@@ -58,7 +55,6 @@ const JobList: React.FC = () => {
       editJob(editJobId, EditedJob);
       setEditJobId(null);
       setEditJobName("");
-      setEditImg("");
       setEditJobDescription("");
       setEditJobLocation("");
       setEditRequriedExperience("");
@@ -69,8 +65,11 @@ const JobList: React.FC = () => {
 
   const handleSubmit = () => {
     handleUpdateJob();
-
     setEditModal(false);
+  };
+
+  const handleDeleteJob = (id: number) => {
+    deleteJob(id);
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,13 +82,14 @@ const JobList: React.FC = () => {
 
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-gray-600">
+      <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <div className=" pl-16 not-italic text-4xl font-semibold whitespace-nowrap dark:text-white  ">
+          <div className="  not-italic text-4xl font-semibold whitespace-nowrap dark:text-white">
             Job Portal
           </div>
+        </div>
 
-          <div className="  md:block md:w-auto float-left      ">
+        <div className="  md:block md:w-auto float-left  ml-16  ">
           <span style={{ display: "inline-block" }}>
             <input
               type="text"
@@ -99,20 +99,17 @@ const JobList: React.FC = () => {
               className="shadow appearance-none border text-xl py-2 pr-8 pl-6 text-black rounded-2xl  "
             />
           </span>
-          
         </div>
         <div
-          className="hidden w-full md:block md:w-auto float-right  pr-16 mb-5 pt-2"
+          className="hidden w-full md:block md:w-auto float-right mr-16 mb-5"
           id="navbar-default"
         >
           <ModalAdd />
         </div>
-        </div>
+      </nav>
 
-      </nav> 
-
-      <div className="container mx-auto mt-2 pb-12  ">
-        <div className="grid lg:grid-cols-2 gap-10 p-10   ">
+      <div className="container mx-auto mt-20 pb-12  ">
+        <div className="grid lg:grid-cols-2 gap-10 ">
           {filteredItems.map((job) => (
             <div key={job.id}>
               {editJobId === job.id ? (
@@ -130,6 +127,9 @@ const JobList: React.FC = () => {
                                 className="bg-transparent border-0 text-black  float-right"
                                 onClick={() => setEditModal(false)}
                               >
+                                {/* <span className="text-black  h-10 w-6 text-3xl block py-0 pr-10 rounded-full">
+                                  x
+                                </span> */}
                               </button>
                             </div>
                             <div className="relative p-6 flex-auto ">
@@ -146,18 +146,6 @@ const JobList: React.FC = () => {
                                     setEditJobName(e.target.value)
                                   }
                                 />
-                                 <label className="block text-black text-1xl font-bold mb-1 not-italic float-left">
-                      JobLogo
-                    </label>
-
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
-                      type="text"
-                      value={editImg}
-                      onChange={(e) => setEditImg(e.target.value)}
-                    />
-
-
 
                                 <label className="block text-black text-1xl font-bold mb-1 not-italic float-left">
                                   Description
@@ -176,10 +164,7 @@ const JobList: React.FC = () => {
                                   Experience
                                 </label>
 
-                                <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded "   value={editSalary}
-                                  onChange={(e) =>
-                                    setEditRequriedExperience(e.target.value)
-                                  }>
+                                <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded ">
                                   <option>3 years</option>
                                   <option>4 years</option>
                                   <option>5 years</option>
@@ -193,19 +178,14 @@ const JobList: React.FC = () => {
                                   Salary
                                 </label>
 
-                                <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded "
-                                value={editRequriedExperience}
-                                onChange={(e) =>
-                                  setEditSalary(e.target.value)
-                                }
-                                >
-                                  <option>3 Lpa</option>
-                                  <option>4 Lpa</option>
-                                  <option>5 Lpa</option>
-                                  <option>6 Lpa</option>
-                                  <option>7 Lpa</option>
-                                  <option>8 Lpa</option>
-                                  <option>9 Lpa</option>
+                                <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded ">
+                                  <option>3 LPA</option>
+                                  <option>4 LPA</option>
+                                  <option>5 LPA</option>
+                                  <option>6 LPA</option>
+                                  <option>7 LPA</option>
+                                  <option>8 LPA</option>
+                                  <option>9 LPA</option>
                                 </select>
 
                                 <label className="block text-black text-1xl font-bold mb-1 not-italic float-left">

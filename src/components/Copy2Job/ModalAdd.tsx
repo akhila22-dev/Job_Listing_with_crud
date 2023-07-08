@@ -3,6 +3,7 @@ import JobContext, { Job } from "./JobContext";
 
 const ModalAdd: React.FC = () => {
   const { addJob } = useContext(JobContext);
+
   const [newJobImg, setNewJobImg] = useState("");
   const [newJobName, setNewJobName] = useState("");
   const [newJobDescription, setNewJobDescription] = useState("");
@@ -108,8 +109,7 @@ const ModalAdd: React.FC = () => {
                       Experience
                     </label>
 
-                    <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded " value={newRequriedExperience}
-                      onChange={(e) => setNewRequriedExperience(e.target.value)}>
+                    <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded ">
                       <option>1 years</option>
                       <option>2 years</option>
                       <option>3 years</option>
@@ -125,11 +125,7 @@ const ModalAdd: React.FC = () => {
                       Salary
                     </label>
 
-                    <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded "
-                      value={newSalary}
-                      onChange={(e) => setNewSalary(e.target.value)}
-                    >
-                    
+                    <select className="block text-black text-1xl font-bold mb-1 pl-4 not-italic float-left w-full  h-10 shadow  border rounded ">
                       <option>3 Lpa</option>
                       <option>4 Lpa</option>
                       <option>5 Lpa</option>

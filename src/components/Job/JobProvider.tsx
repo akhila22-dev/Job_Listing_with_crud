@@ -14,7 +14,7 @@ const JobProvider: React.FC<Props> = ({ children }) => {
       name: "Vue.js",
       jobDescription: "JavaScript",
       jobLocation: "Banglore",
-      requriedExperience: "4-5 yrs experience ",
+      requriedExperience: "4-5 yrs ",
       salary: "3 Lpa",
       jobRole: "Frontend Developer",
     },
