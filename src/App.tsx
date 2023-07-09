@@ -6,9 +6,9 @@ import JobProvider from "./components/Job/JobProvider";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <JobProvider>
-        <JobList/>
+    <div className="App ">
+      <JobProvider >
+        <JobList />
       </JobProvider>
     </div>
   );
